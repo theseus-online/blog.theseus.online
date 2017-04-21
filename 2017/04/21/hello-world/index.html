@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Getting Start | Theseus Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NoteTheseus is still under development till now, this tutorial is used to collect requirements from early users(if you’d like be on of them). Do NOT deploy any production service in case of secure pro">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Start">
+<meta property="og:url" content="http://blog.theseus.online/2017/04/21/hello-world/index.html">
+<meta property="og:site_name" content="Theseus Blog">
+<meta property="og:description" content="NoteTheseus is still under development till now, this tutorial is used to collect requirements from early users(if you’d like be on of them). Do NOT deploy any production service in case of secure pro">
+<meta property="og:updated_time" content="2017-04-21T14:11:56.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Getting Start">
+<meta name="twitter:description" content="NoteTheseus is still under development till now, this tutorial is used to collect requirements from early users(if you’d like be on of them). Do NOT deploy any production service in case of secure pro">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+</head>
+
+  
+    
+      <body>
+    
+  
+      <div id="container" class="container">
+        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+  <nav id="main-nav" class="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="https://theseus.online/#/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Getting Start
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p><a href="https://theseus.online" target="_blank" rel="external">Theseus</a> is still under development till now, this tutorial is used to collect requirements from early users(if you’d like be on of them). Do <code>NOT</code> deploy any production service in case of secure problem.</p>
+<h3 id="Early-Tutorial"><a href="#Early-Tutorial" class="headerlink" title="Early Tutorial"></a>Early Tutorial</h3><h4 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h4><p>There are about 4 concepts in theseus:</p>
+<ul>
+<li>Deployment: It may contains several docker containers, and every container comes from an image which is pulled from public docker registry(lick dockerhub or gcr). Every container can mount serval volumes to make data persistant.</li>
+<li>Service: Servise is used for service discover, for example, you have two deployment A and B, they can not get each other’s ip address, the only way to let them communicate is by service. You can think a service is a LVS which can find your deployment automaticly.</li>
+<li>Ingress: By service, you can find your deployment within theseus, but if you want to access your service from internet, you should use an ingress. Ingress can map your domain to a service in theseus, then you can point your domain to theseus(app.theseus.online) and access your domain with browser. Ingress support both http and https.</li>
+<li>Volume: Volume is used to persistance data in container and provide config file storage. You can mount a volume to specific directory in a container, when that container read or write to that directory, it just read or write to the volume. It can persistance data is because when deployment get end of it’s lifecycle, the volume still exists unless you delete it manually.</li>
+</ul>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>Here I’ll deploy a nginx to show how theseus works.</p>
+<ul>
+<li>Open your browser(eg. chrome) and open url <code>https://theseus.online</code></li>
+<li>Click Login button on the header bar, here it will jump to github oauth page and ask you login your github account(yes, we don’t have our own account system and there is no plan to have one).</li>
+<li>After you login your github account, the page should jump to theseus, and you can see there is a new tab named <code>Deploy</code>.</li>
+<li>On the <code>Deployments</code> slide tab, click the green <code>+</code> and it will route to a page, where we just input the app name as ‘test’ and the image name as ‘test-nginx’, and the image address should just be ‘nginx’, it will execute docker pull nginx in theseus. And then, click <code>Deploy</code>. After that, you should see this deployment on the deployment dashboard.</li>
+<li>To export our test deployment to the internet, we should add a service and an ingress. On the <code>Services</code> slide tab, click the green <code>+</code>. Then input the service name as ‘test-service’, and chose the <code>test</code> deployment as backend, and input port name as ‘test-port’(it dosen’t has much means now, but, just need one), and the protocol, chose TCP, and both srcPort and dstPort shuod be 80, it means map service’s 80 TCP port to the deployment(aka ‘test’)’s TCP 80 port. Click <code>Deploy</code>. Again you should see it in service dashboard.</li>
+<li>The last step, setup the domain within Ingress. In ingress dashboard, click <code>+</code>, and input the ingress name as ‘test-ingress’, and input the domain you want to use. Obviously you should use your own domain, not others. I have a domain ‘sigsegv.site’, so I input ‘www.sigsegv.site’, because I use http instead of https for this site, so I don’t check secure, then I chose backend service ‘test-service’, and it’s port ‘test-port’. Then, deploy. It’s not done yet, you should cname your to <code>app.theseus.online</code>, it’s important.  </li>
+</ul>
+<p>After these, open the domain with your browser, you should see it.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2017/04/21/hello-world/" class="article-date">
+  <time datetime="2017-04-20T16:00:00.000Z" itemprop="datePublished">2017-04-21</time>
+</a>
+
+        </li>
+        
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+
+  
+</article>
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        
+
+      </div>
+    </footer>
+
+      
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  </body>
+</html>
