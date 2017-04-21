@@ -1,0 +1,36 @@
+# Lang
+language: en
+
+# Dark Mode
+dark: false
+
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  About: https://theseus.online/#/about
+
+# Content
+fancybox: true
+
+
+# Miscellaneous
+google_analytics:
+favicon: /favicon.ico
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:
+
+
+# Profile
+nickname: Theseus Blog
+description: ""
+links:
+  Blog: /archives
+  GitHub: https://github.com/theseus-online
+
+
+# Info
+archive_footer_content: ""
+post_footer_content: ""
