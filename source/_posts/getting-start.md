@@ -1,6 +1,6 @@
 ---
 title:  Getting Start
-date:   2017/4/21
+date:   2017/04/21
 ---
 ### Note
 [Theseus](https://theseus.online) is still under development till now, this tutorial is used to collect requirements from early users(if you'd like be one of them). Do `NOT` deploy any production service in case of secure problem.
