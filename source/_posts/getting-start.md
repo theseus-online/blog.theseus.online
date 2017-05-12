@@ -8,7 +8,8 @@ date:   2017/04/21
 ### Early Tutorial
 #### Concepts
 There are about 4 concepts in theseus:
-- Deployment: It may contains several docker containers, and every container comes from an image which is pulled from public docker registry(lick dockerhub or gcr). Every container can mount serval volumes to make data persistant.
+- Deployment: It may contains several docker containers, and every container comes from an image which is pulled from public docker registry(lick dockerhub or gcr). Every container can mount serval volumes to make data persistant. A deployment can have one or more instance(aka. Pod).
+- Pod: Deployment's running instance. Every pod is a logical host which has an unique internal ip address. Pod has three status: running, waiting, terminated.
 - Service: Servise is used for service discover, for example, you have two deployment A and B, they can not get each other's ip address, the only way to let them communicate is by service. You can think a service is a LVS which can find your deployment automaticly.
 - Ingress: By service, you can find your deployment within theseus, but if you want to access your service from internet, you should use an ingress. Ingress can map your domain to a service in theseus, then you can point your domain to theseus(app.theseus.online) and access your domain with browser. Ingress support both http and https.
 - Volume: Volume is used to persistance data in container and provide config file storage. You can mount a volume to specific directory in a container, when that container read or write to that directory, it just read or write to the volume. It can persistance data is because when deployment get end of it's lifecycle, the volume still exists unless you delete it manually.
