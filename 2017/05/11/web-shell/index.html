@@ -5,18 +5,18 @@
   
   <title>Web Shell | Theseus Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntroduceThough it’s not recommend to change running container’s environment artificially, it’s useful in some special cases to open a shell and get into container, for example:data migration, trouble">
+  <meta name="description" content="IntroductionThough it’s not recommend to change running container’s environment artificially, it’s useful in some special cases to open a shell and get into container, for example:data migration, trou">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web Shell">
 <meta property="og:url" content="http://blog.theseus.online/2017/05/11/web-shell/index.html">
 <meta property="og:site_name" content="Theseus Blog">
-<meta property="og:description" content="IntroduceThough it’s not recommend to change running container’s environment artificially, it’s useful in some special cases to open a shell and get into container, for example:data migration, trouble">
+<meta property="og:description" content="IntroductionThough it’s not recommend to change running container’s environment artificially, it’s useful in some special cases to open a shell and get into container, for example:data migration, trou">
 <meta property="og:image" content="http://blog.theseus.online/images/web-shell-top.png">
-<meta property="og:updated_time" content="2017-05-11T12:43:28.393Z">
+<meta property="og:updated_time" content="2017-05-11T15:52:24.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web Shell">
-<meta name="twitter:description" content="IntroduceThough it’s not recommend to change running container’s environment artificially, it’s useful in some special cases to open a shell and get into container, for example:data migration, trouble">
+<meta name="twitter:description" content="IntroductionThough it’s not recommend to change running container’s environment artificially, it’s useful in some special cases to open a shell and get into container, for example:data migration, trou">
 <meta name="twitter:image" content="http://blog.theseus.online/images/web-shell-top.png">
   
   
@@ -63,7 +63,7 @@
     
     <div class="article-entry typo" itemprop="articleBody">
       
-        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>Though it’s not recommend to change running container’s environment artificially, it’s useful in some special cases to open a shell and get into container, for example:<br>data migration, troubleshooting etc. To archieve this, theseus provide a web shell in which you can excute any command in your container just like in local terminal. The web shell looks like this:<br><img src="/images/web-shell-top.png" alt="web shell"></p>
+        <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Though it’s not recommend to change running container’s environment artificially, it’s useful in some special cases to open a shell and get into container, for example:<br>data migration, troubleshooting etc. To archieve this, theseus provide a web shell in which you can excute any command in your container just like in local terminal. The web shell looks like this:<br><img src="/images/web-shell-top.png" alt="web shell"></p>
 <h3 id="UTF-8-Support"><a href="#UTF-8-Support" class="headerlink" title="UTF-8 Support"></a>UTF-8 Support</h3><p>UTF-8 is allowed, but you should config your container locale to UTF-8(eg. en_US.UTF-8) or the UTF-8 code will be garbled.</p>
 <h3 id="Secure"><a href="#Secure" class="headerlink" title="Secure"></a>Secure</h3><p>If you need input password in the shell(eg. use scp to migrate data form/to other place), just feel free to do that, we use WSS(WS-Security) to transfer data with server, so your password won’t be seen by others.</p>
 <h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><h4 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h4><p>The architecture of web shell is like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-------------    wss     -------------------------    ws    -----------</div><div class="line">| web-shell | ---------&gt; | proxy(Authentication) | --------&gt;| k8s-api |</div><div class="line">-------------            -------------------------          -----------</div></pre></td></tr></table></figure></p>
@@ -92,7 +92,7 @@
 <nav id="article-nav" class="article-nav">
   
     <a href="/2017/05/10/original-intention/" id="article-nav-newer" class="article-nav-link-wrap newer">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
           Original Intention
@@ -101,7 +101,10 @@
     </a>
   
   
-    <span id="article-nav-older" class="article-nav-link-wrap older"></span>
+    <a href="/2017/05/12/network-isolation/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">Network Isolation</div>
+    </a>
   
 </nav>
 
