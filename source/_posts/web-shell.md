@@ -2,7 +2,7 @@
 title:  Web Shell
 date:   2017/05/11
 ---
-### Introduce
+### Introduction
 Though it's not recommend to change running container's environment artificially, it's useful in some special cases to open a shell and get into container, for example:
 data migration, troubleshooting etc. To archieve this, theseus provide a web shell in which you can excute any command in your container just like in local terminal. The web shell looks like this:
 ![web shell](/images/web-shell-top.png)
