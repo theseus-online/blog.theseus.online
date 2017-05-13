@@ -5,17 +5,17 @@
   
   <title>Architecture | Theseus Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This post will describe how theseus works, it’s usefull for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api K8S Api Map Volume Management">
+  <meta name="description" content="This post will describe how theseus works, it’s usefull for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api The Portal    Theseus Topologi">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Architecture">
 <meta property="og:url" content="http://blog.theseus.online/2017/04/27/architecture/index.html">
 <meta property="og:site_name" content="Theseus Blog">
-<meta property="og:description" content="This post will describe how theseus works, it’s usefull for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api K8S Api Map Volume Management">
-<meta property="og:updated_time" content="2017-05-10T08:14:43.114Z">
+<meta property="og:description" content="This post will describe how theseus works, it’s usefull for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api The Portal    Theseus Topologi">
+<meta property="og:updated_time" content="2017-05-13T09:26:57.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Architecture">
-<meta name="twitter:description" content="This post will describe how theseus works, it’s usefull for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api K8S Api Map Volume Management">
+<meta name="twitter:description" content="This post will describe how theseus works, it’s usefull for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api The Portal    Theseus Topologi">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -66,11 +66,7 @@
 <li><a href="#Theseus-Topological-Graph">Theseus Topological Graph</a><ul>
 <li><a href="#The-Proxy">The Proxy</a></li>
 <li><a href="#The-Auth">The Auth</a></li>
-<li><a href="#The-Api">The Api</a><ul>
-<li><a href="#K8S-Api-Map">K8S Api Map</a></li>
-<li><a href="#Volume-Management">Volume Management</a></li>
-</ul>
-</li>
+<li><a href="#The-Api">The Api</a></li>
 <li><a href="#The-Portal">The Portal</a></li>
 </ul>
 </li>
@@ -92,39 +88,6 @@
 <li>Map user request to k8s format, and proxy it to k8s api.</li>
 <li>Manage persistant volumes.</li>
 </ul>
-<h5 id="K8S-Api-Map"><a href="#K8S-Api-Map" class="headerlink" title="K8S Api Map"></a>K8S Api Map</h5><p>Theseus api will map and proxy deployment, service and ingress request to k8s, so that the frontend don’t need know if the backend is k8s or not.</p>
-<h5 id="Volume-Management"><a href="#Volume-Management" class="headerlink" title="Volume Management"></a>Volume Management</h5><p>User can mount two kinds of volumes to container: persistant volume and <code>Empty Directory</code> volume. The difference between them is that the persistant volume is always exists unless user delete them manually, but the <code>Empty Directory</code> volume never live longer than the deployment it attached to, in other words, when you create or update deployment, there is no way to choise a <code>Empty Directory</code> volume created before.<br>Here is a compare between <code>Empty Directory</code> volume and persistant volume:</p>
-<table>
-<thead>
-<tr>
-<th>volume</th>
-<th>persistant volume</th>
-<th>Empty Directory volume</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>life</td>
-<td>forever</td>
-<td>in the deployment</td>
-</tr>
-<tr>
-<td>name</td>
-<td>can named by user</td>
-<td>empty-dir-*</td>
-</tr>
-<tr>
-<td>backend</td>
-<td>NFS</td>
-<td>host local storage</td>
-</tr>
-<tr>
-<td>speed</td>
-<td>slow</td>
-<td>fast</td>
-</tr>
-</tbody>
-</table>
 <h4 id="The-Portal"><a href="#The-Portal" class="headerlink" title="The Portal"></a>The Portal</h4><p>The portal is the user interface, served as static files(html, js, css etc.).</p>
 
       
