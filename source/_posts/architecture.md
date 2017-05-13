@@ -9,8 +9,6 @@ This post will describe how theseus works, it's usefull for developers and who w
   - [The Proxy](#The-Proxy)
   - [The Auth](#The-Auth)
   - [The Api](#The-Api)
-    - [K8S Api Map](#K8S-Api-Map)
-    - [Volume Management](#Volume-Management)
   - [The Portal](#The-Portal)
 
 ### Theseus Topological Graph
@@ -46,20 +44,6 @@ The auth module's work is simple:
 The api's work contains two aspects:
 - Map user request to k8s format, and proxy it to k8s api.
 - Manage persistant volumes.
-
-##### K8S Api Map
-Theseus api will map and proxy deployment, service and ingress request to k8s, so that the frontend don't need know if the backend is k8s or not.
-
-##### Volume Management
-User can mount two kinds of volumes to container: persistant volume and `Empty Directory` volume. The difference between them is that the persistant volume is always exists unless user delete them manually, but the `Empty Directory` volume never live longer than the deployment it attached to, in other words, when you create or update deployment, there is no way to choise a `Empty Directory` volume created before.  
-Here is a compare between `Empty Directory` volume and persistant volume:
-
-| volume  | persistant volume | Empty Directory volume |
-|---------|-------------------|------------------------|
-| life    | forever           | in the deployment      |
-| name    | can named by user | empty-dir-*            |
-| backend | NFS               | host local storage     |
-| speed   | slow              | fast                   |
 
 #### The Portal
 The portal is the user interface, served as static files(html, js, css etc.).
