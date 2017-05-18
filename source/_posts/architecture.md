@@ -12,27 +12,11 @@ This post will describe how theseus works, it's usefull for developers and who w
   - [The Portal](#The-Portal)
 
 ### Theseus Topological Graph
-```
-                                                          -----------
-                                                    ----> | k8s api |
-                                                    |     -----------
-                                        --------    |
-                                  ----> |  api | ---|
-                                  |     --------    |
-    -----------      ---------    |     ----------  |     -------------    ------------
-    | browser | ---> | proxy | ---|---> | portal |  |---> | postgrest | -> | postgres |
-    -----------      ---------    |     ----------  |     -------------    ------------
-                                  |     --------    |
-                                  ----> | auth | ---|
-                                        --------    |
-                                                    |     --------------
-                                                    ----> | github api |
-                                                          --------------
-```
+![general architecture](/images/theseus-general-architecture.png)  
 #### The Proxy
 The proxy is a reverse proxy, it has two missions:
 - proxy request to appropriate backend by different url.
-- check if a request has validate cookie(signature) if it's dest backend is `api`.
+- check if a request has validate cookie(signature) if it's target backend is `api`.
 
 #### The Auth
 The auth module's work is simple:
@@ -43,7 +27,7 @@ The auth module's work is simple:
 #### The Api
 The api's work contains two aspects:
 - Map user request to k8s format, and proxy it to k8s api.
-- Manage persistant volumes.
+- Manage persistent volumes.
 
 #### The Portal
 The portal is the user interface, served as static files(html, js, css etc.).

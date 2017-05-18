@@ -6,9 +6,9 @@ date:   2017/05/13
 ***Pod***: The instance of `deployment`. It has three status: running, waiting and terminated. A deployment may have more than one pods, each pod can be treated as a logical host which has an unique internal ip address. Pod's structure is the same as the deployment which it born from.  
 The relation between `deployment` and `pod` looks like this:  
 ![relation between deployment and pods](/images/deployment-pod-relation.png)  
-***Volume***: There are two main uses for the volume: data persistence and data sharing. There are two kinds of volumes: persistant volume and empty-dir volume. The difference between them is that the persistant volume is always exists unless user delete them manually, while the empty-dir volume never live longer than the pod it attached to. And the persistant volume can share data cross both containers and pods while empty-dir volume can only share data cross containers in the same pod. Here is a comparison between them:
+***Volume***: There are two main uses for the volume: data persistence and data sharing. There are two kinds of volumes: persistent volume and empty-dir volume. The difference between them is that the persistent volume is always exists unless user delete them manually, while the empty-dir volume never live longer than the pod it attached to. And the persistent volume can share data cross both containers and pods while empty-dir volume can only share data cross containers in the same pod. Here is a comparison between them:
 
-| volume          | persistant volume | Empty Directory volume |
+| volume          | persistent volume | Empty Directory volume |
 |-----------------|-------------------|------------------------|
 | life            | forever           | in the pod             |
 | name            | can named by user | empty-dir-*            |
