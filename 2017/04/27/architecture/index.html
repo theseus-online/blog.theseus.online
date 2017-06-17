@@ -5,18 +5,18 @@
   
   <title>Architecture | Theseus Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This post will describe how theseus works, it’s usefull for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api The Portal    Theseus Topologi">
+  <meta name="description" content="This post will describe how theseus works, it’s useful for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api The Portal    Theseus Topologic">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Architecture">
 <meta property="og:url" content="http://blog.theseus.online/2017/04/27/architecture/index.html">
 <meta property="og:site_name" content="Theseus Blog">
-<meta property="og:description" content="This post will describe how theseus works, it’s usefull for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api The Portal    Theseus Topologi">
+<meta property="og:description" content="This post will describe how theseus works, it’s useful for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api The Portal    Theseus Topologic">
 <meta property="og:image" content="http://blog.theseus.online/images/theseus-general-architecture.png">
-<meta property="og:updated_time" content="2017-05-18T07:40:01.539Z">
+<meta property="og:updated_time" content="2017-06-17T10:52:14.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Architecture">
-<meta name="twitter:description" content="This post will describe how theseus works, it’s usefull for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api The Portal    Theseus Topologi">
+<meta name="twitter:description" content="This post will describe how theseus works, it’s useful for developers and who want to contribute. Table of Contents Theseus Topological Graph The Proxy The Auth The Api The Portal    Theseus Topologic">
 <meta name="twitter:image" content="http://blog.theseus.online/images/theseus-general-architecture.png">
   
   
@@ -63,7 +63,7 @@
     
     <div class="article-entry typo" itemprop="articleBody">
       
-        <p>This post will describe how theseus works, it’s usefull for developers and who want to contribute.</p>
+        <p>This post will describe how theseus works, it’s useful for developers and who want to contribute.</p>
 <h3 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h3><ul>
 <li><a href="#Theseus-Topological-Graph">Theseus Topological Graph</a><ul>
 <li><a href="#The-Proxy">The Proxy</a></li>
@@ -76,21 +76,21 @@
 <h3 id="Theseus-Topological-Graph"><a href="#Theseus-Topological-Graph" class="headerlink" title="Theseus Topological Graph"></a>Theseus Topological Graph</h3><p><img src="/images/theseus-general-architecture.png" alt="general architecture">  </p>
 <h4 id="The-Proxy"><a href="#The-Proxy" class="headerlink" title="The Proxy"></a>The Proxy</h4><p>The proxy is a reverse proxy, it has two missions:</p>
 <ul>
-<li>proxy request to appropriate backend by different url.</li>
-<li>check if a request has validate cookie(signature) if it’s dest backend is <code>api</code>.</li>
+<li>The proxy is a reverse proxy, which has two missions.</li>
+<li>check if a request has validated cookie(signature) if its target backend is <code>api</code>.</li>
 </ul>
 <h4 id="The-Auth"><a href="#The-Auth" class="headerlink" title="The Auth"></a>The Auth</h4><p>The auth module’s work is simple:</p>
 <ul>
-<li>when user request for login, it redirect user to github oauth page.</li>
-<li>when github redirect user back to callback url, it request github for user information, then it set cookie with user information and signature it. Besides， it should update user information to database(aka postgres).</li>
-<li>when user request for logout, it erase cookie.</li>
+<li>when a user request for login, it redirect the user to Github Oauth page.</li>
+<li>when GitHub redirect the user back to callback URL, it requests GitHub for user information, then it set a cookie with user information and signature it. Besides， it should update user information to the database(aka Postgres).</li>
+<li>when a user request for log out, it erases cookie.</li>
 </ul>
-<h4 id="The-Api"><a href="#The-Api" class="headerlink" title="The Api"></a>The Api</h4><p>The api’s work contains two aspects:</p>
+<h4 id="The-Api"><a href="#The-Api" class="headerlink" title="The Api"></a>The Api</h4><p>The API’s work contains two aspects:</p>
 <ul>
 <li>Map user request to k8s format, and proxy it to k8s api.</li>
-<li>Manage persistant volumes.</li>
+<li>Manage persistent volumes.</li>
 </ul>
-<h4 id="The-Portal"><a href="#The-Portal" class="headerlink" title="The Portal"></a>The Portal</h4><p>The portal is the user interface, served as static files(html, js, css etc.).</p>
+<h4 id="The-Portal"><a href="#The-Portal" class="headerlink" title="The Portal"></a>The Portal</h4><p>The portal is the user interface, served as static files(HTML, JS, CSS etc.).</p>
 
       
     </div>
@@ -114,7 +114,7 @@
 <nav id="article-nav" class="article-nav">
   
     <a href="/2017/04/21/getting-start/" id="article-nav-newer" class="article-nav-link-wrap newer">
-      <strong class="article-nav-caption">Nuevo</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           Getting Start
@@ -124,7 +124,7 @@
   
   
     <a href="/2017/05/10/original-intention/" id="article-nav-older" class="article-nav-link-wrap older">
-      <strong class="article-nav-caption">Viejo</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Original Intention</div>
     </a>
   

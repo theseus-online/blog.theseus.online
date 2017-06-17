@@ -5,13 +5,13 @@
   
   <title>Network Isolation | Theseus Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntroductionIn order to provide a secure network environment, we’ve isolated the internal network. You can’t access other user’s service unless he provide an ingress for that service. In another word,">
+  <meta name="description" content="IntroductionIn order to provide a secure network environment, we’ve isolated the internal network. You can’t access other user’s service unless he provides an ingress for that service. In another word">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Network Isolation">
 <meta property="og:url" content="http://blog.theseus.online/2017/05/12/network-isolation/index.html">
 <meta property="og:site_name" content="Theseus Blog">
-<meta property="og:description" content="IntroductionIn order to provide a secure network environment, we’ve isolated the internal network. You can’t access other user’s service unless he provide an ingress for that service. In another word,">
+<meta property="og:description" content="IntroductionIn order to provide a secure network environment, we’ve isolated the internal network. You can’t access other user’s service unless he provides an ingress for that service. In another word">
 <meta property="og:image" content="http://blog.theseus.online/images/test-pod-nginx-by-lucklove.png">
 <meta property="og:image" content="http://blog.theseus.online/images/not-accessable-by-ele828-by-ip.png">
 <meta property="og:image" content="http://blog.theseus.online/images/test-service-by-lucklove.png">
@@ -19,10 +19,10 @@
 <meta property="og:image" content="http://blog.theseus.online/images/test-ingress-by-lucklove.png">
 <meta property="og:image" content="http://blog.theseus.online/images/accessable-by-ele828-by-ingress.png">
 <meta property="og:image" content="http://blog.theseus.online/images/access-all-by-lucklove.png">
-<meta property="og:updated_time" content="2017-05-12T07:14:01.358Z">
+<meta property="og:updated_time" content="2017-06-17T14:14:08.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Network Isolation">
-<meta name="twitter:description" content="IntroductionIn order to provide a secure network environment, we’ve isolated the internal network. You can’t access other user’s service unless he provide an ingress for that service. In another word,">
+<meta name="twitter:description" content="IntroductionIn order to provide a secure network environment, we’ve isolated the internal network. You can’t access other user’s service unless he provides an ingress for that service. In another word">
 <meta name="twitter:image" content="http://blog.theseus.online/images/test-pod-nginx-by-lucklove.png">
   
   
@@ -69,10 +69,10 @@
     
     <div class="article-entry typo" itemprop="articleBody">
       
-        <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>In order to provide a secure network environment, we’ve isolated the internal network. You can’t access other user’s service unless he provide an ingress for that service. In another word, if you don’t provide a ingress for a service, there is no need to config certification for it since only your pods can access it. This feature reduce boring certification work for you.</p>
-<h4 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h4><p>To show how network isolation mechanism works, we use two github account, <code>lucklove</code> and <code>ele828</code> to test it.<br>Firstly, we create a deployment with account <code>lucklove</code>:<br><img src="/images/test-pod-nginx-by-lucklove.png" alt="A deployment running nginx in account lucklove"><br>Here we can see that it contains one pod with internal ip address <code>192.168.5.123</code>.<br>Secondly, we deploy a container with account <code>ele828</code>, it’s not important what’s in the container this time, but to record the facts, we use <code>centos</code> as image and running custom command <code>/sbin/init</code>, then we open a shell on this container, test if it can access pod in account <code>lucklove</code>:<br><img src="/images/not-accessable-by-ele828-by-ip.png" alt="Not accessable"><br>What if <code>lucklove</code> provide a service and <code>ele828</code> access the service?<br><img src="/images/test-service-by-lucklove.png" alt="Service provided by lucklove"><br>Access it in <code>ele828</code>‘s pod:<br><img src="/images/not-accessable-by-ele828-by-service.png" alt="Still not accessable"><br>What if <code>lucklove</code> provide an ingress for this service?<br><img src="/images/test-ingress-by-lucklove.png" alt="Ingress provided by lucklove"><br>Access it again:<br><img src="/images/accessable-by-ele828-by-ingress.png" alt="Accessable!"><br>As you see, if ingress provided, the service will be accessable by others, but it’s from the internet, not from internal network of theseus. That’s to say, not only theseus users can access it, it’s accessable by the whole internet.  </p>
+        <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>In order to provide a secure network environment, we’ve isolated the internal network. You can’t access other user’s service unless he provides an ingress for that service. In another word, if you don’t provide an ingress for a service, there is no need to config certification for it since only your pods can access it. This feature reduces boring certification work for you.</p>
+<h4 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h4><p>To show how network isolation mechanism works, we use two Github account, <code>lucklove</code> and <code>ele828</code> to test it.<br>Firstly, we create a deployment with account <code>lucklove</code>:<br><img src="/images/test-pod-nginx-by-lucklove.png" alt="A deployment running nginx in account lucklove"><br>Here we can see that it contains one pod with internal IP address <code>192.168.5.123</code>.<br>Secondly, we deploy a container with account <code>ele828</code>, it’s not important what’s in the container this time, but to record the facts, we use <code>centos</code> as image and running custom command <code>/sbin/init</code>, then we open a shell on this container, test if it can access pod in account <code>lucklove</code>:<br><img src="/images/not-accessable-by-ele828-by-ip.png" alt="Not accessable"><br>What if <code>lucklove</code> provides a service and <code>ele828</code> accesses the service?<br><img src="/images/test-service-by-lucklove.png" alt="Service provided by lucklove"><br>Access it in <code>ele828</code>‘s pod:<br><img src="/images/not-accessable-by-ele828-by-service.png" alt="Still not accessable"><br>What if <code>lucklove</code> provides an ingress for this service?<br><img src="/images/test-ingress-by-lucklove.png" alt="Ingress provided by lucklove"><br>Access it again:<br><img src="/images/accessable-by-ele828-by-ingress.png" alt="Accessable!"><br>As you see, if ingress provided, the service will be accessible by others, but it’s from the internet, not from internal network of theseus. That’s to say, not only theseus users can access it, it’s accessible by the whole internet.  </p>
 <p>What these look like in <code>lucklove</code>‘s view? We open a shell in lucklove’s another pod(with image <code>centos</code>, command <code>/sbin/init</code>), do the same thing as before.<br><img src="/images/access-all-by-lucklove.png" alt="All are accessable"></p>
-<h4 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h4><p>Theseus use <code>calico</code> as k8s cni plugin. When a user login theseus at the first time, theseus will initializate his namespace which disable any cross pod access by default. Every time a user deploy a deployment, theseus will set a NetworkPolicy for it, which allows pods created by this deployment to be accessed by other pods owned by the same user. During this process, <code>calico</code> will watch all related events all the time, and set iptables to control if a pod can access another pod.</p>
+<h4 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h4><p>Theseus use <code>calico</code> as k8s CNI plugin. When a user login theseus at the first time, theseus will initialize his namespace which disables any cross pod access by default. Every time a user deploy a deployment, theseus will set a NetworkPolicy for it, which allows pods created by this deployment to be accessed by other pods owned by the same user. During this process, <code>calico</code> will watch all related events all the time, and set iptables to control if a pod can access another pod.</p>
 
       
     </div>
@@ -96,7 +96,7 @@
 <nav id="article-nav" class="article-nav">
   
     <a href="/2017/05/11/web-shell/" id="article-nav-newer" class="article-nav-link-wrap newer">
-      <strong class="article-nav-caption">Nuevo</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           Web Shell
@@ -106,7 +106,7 @@
   
   
     <a href="/2017/05/13/concepts/" id="article-nav-older" class="article-nav-link-wrap older">
-      <strong class="article-nav-caption">Viejo</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Concepts</div>
     </a>
   
